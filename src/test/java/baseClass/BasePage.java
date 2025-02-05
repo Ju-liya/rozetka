@@ -1,4 +1,4 @@
-package BaseClass;
+package baseClass;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,31 +10,23 @@ import java.time.Duration;
 
 public class BasePage {
     WebDriver driver;
-    public BasePage(WebDriver driver) {this.driver = driver;}
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public WebElement findLocftor(String locftor) {
         return driver.findElement(By.xpath(locftor));
     }
-    public void getUrl(String url){
+
+    public void navigate(String url) {
         driver.get(url);
     }
+
     public WebElement waitClickbleElement(String locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
         return driver.findElement(By.xpath(locator));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
